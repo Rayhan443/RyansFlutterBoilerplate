@@ -1,0 +1,76 @@
+import 'package:flutter/material.dart';
+
+class AppColors {
+  // Light Theme Colors
+  static const primaryLight = Color(0xFF725855);
+  static const primaryContainerLight = Color(0xFFFFDFDA);
+  static const onPrimaryContainerLight = Color(0xFF5C4541);
+  static const secondaryLight = Color(0xFF685B59);
+  static const onSecondaryLight = Color(0xFFFFFFFF);
+  static const secondaryContainerLight = Color(0xFFF5E2DF);
+  static const onSecondaryContainerLight = Color(0xFF534746);
+  static const tertiaryLight = Color(0xFF655E48);
+  static const onTertiaryLight = Color(0xFFFFFFFF);
+  static const tertiaryContainerLight = Color(0xFFF1E6CA);
+  static const onTertiaryContainerLight = Color(0xFF514A35);
+  static const errorLight = Color(0xFFBA1A1A);
+  static const onErrorLight = Color(0xFFFFFFFF);
+  static const errorContainerLight = Color(0xFFFFDAD6);
+  static const onErrorContainerLight = Color(0xFF410002);
+  static const backgroundLight = Color(0xFFFFF8F7);
+  static const onBackgroundLight = Color(0xFF1E1B1B);
+  static const surfaceLight = Color(0xFFFFF8F7);
+  static const onSurfaceLight = Color(0xFF1E1B1B);
+  static const surfaceVariantLight = Color(0xFFF0DFDC);
+  static const onSurfaceVariantLight = Color(0xFF4F4443);
+  static const outlineLight = Color(0xFF817472);
+  static const outlineVariantLight = Color(0xFFD3C3C1);
+  static const scrimLight = Color(0xFF000000);
+  static const inverseSurfaceLight = Color(0xFF33302F);
+  static const inverseOnSurfaceLight = Color(0xFFF6EFEE);
+  static const inversePrimaryLight = Color(0xFFE0BFBA);
+  static const surfaceDimLight = Color(0xFFDFD8D7);
+  static const surfaceBrightLight = Color(0xFFFFF8F7);
+  static const surfaceContainerLowestLight = Color(0xFFFFFFFF);
+  static const surfaceContainerLowLight = Color(0xFFF9F2F1);
+  static const surfaceContainerLight = Color(0xFFF4ECEB);
+  static const surfaceContainerHighLight = Color(0xFFEEE7E5);
+  static const surfaceContainerHighestLight = Color(0xFFE8E1E0);
+
+  // Dark Theme Colors
+  static const primaryDark = Color(0xFFFFFFFF);
+  static const onPrimaryDark = Color(0xFF402B28);
+  static const primaryContainerDark = Color(0xFFEECDC8);
+  static const onPrimaryContainerDark = Color(0xFF503A37);
+  static const secondaryDark = Color(0xFFD4C3C0);
+  static const onSecondaryDark = Color(0xFF392E2C);
+  static const secondaryContainerDark = Color(0xFF463B39);
+  static const onSecondaryContainerDark = Color(0xFFDFCDCA);
+  static const tertiaryDark = Color(0xFFFFFFFF);
+  static const onTertiaryDark = Color(0xFF36301D);
+  static const tertiaryContainerDark = Color(0xFFDED4B8);
+  static const onTertiaryContainerDark = Color(0xFF453F2B);
+  static const errorDark = Color(0xFFFFB4AB);
+  static const onErrorDark = Color(0xFF690005);
+  static const errorContainerDark = Color(0xFF93000A);
+  static const onErrorContainerDark = Color(0xFFFFDAD6);
+  static const backgroundDark = Color(0xFF151312);
+  static const onBackgroundDark = Color(0xFFE8E1E0);
+  static const surfaceDark = Color(0xFF151312);
+  static const onSurfaceDark = Color(0xFFE8E1E0);
+  static const surfaceVariantDark = Color(0xFF4F4443);
+  static const onSurfaceVariantDark = Color(0xFFD3C3C1);
+  static const outlineDark = Color(0xFF9C8E8B);
+  static const outlineVariantDark = Color(0xFF4F4443);
+  static const scrimDark = Color(0xFF000000);
+  static const inverseSurfaceDark = Color(0xFFE8E1E0);
+  static const inverseOnSurfaceDark = Color(0xFF33302F);
+  static const inversePrimaryDark = Color(0xFF725855);
+  static const surfaceDimDark = Color(0xFF151312);
+  static const surfaceBrightDark = Color(0xFF3C3838);
+  static const surfaceContainerLowestDark = Color(0xFF100E0D);
+  static const surfaceContainerLowDark = Color(0xFF1E1B1B);
+  static const surfaceContainerDark = Color(0xFF221F1F);
+  static const surfaceContainerHighDark = Color(0xFF2C2929);
+  static const surfaceContainerHighestDark = Color(0xFF373433);
+}
