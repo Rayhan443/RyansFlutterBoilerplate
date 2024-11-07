@@ -38,4 +38,9 @@ class AppTheme {
     final brightness = MediaQuery.platformBrightnessOf(context);
     return brightness == Brightness.light ? lightTheme() : darkTheme();
   }
+
+  static ThemeData systemAmoledTheme(BuildContext context) {
+    final brightness = MediaQuery.of(context).platformBrightness;
+    return brightness == Brightness.dark ? amoledDarkTheme() : lightTheme();
+  }
 }

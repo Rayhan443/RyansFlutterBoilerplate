@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ryans_flutter_boilerplate/main/main_view_model.dart';
 import 'package:ryans_flutter_boilerplate/presentation/home_page/home_page_ui.dart';
-import 'package:ryans_flutter_boilerplate/presentation/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +15,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   MainViewModel viewModel = MainViewModel();
+
+  @override
+  void initState() {
+    viewModel.initTheme();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

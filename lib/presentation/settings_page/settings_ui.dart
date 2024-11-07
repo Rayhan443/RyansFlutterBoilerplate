@@ -40,64 +40,55 @@ class _SettingsUiState extends State<SettingsUi> {
     return ValueListenableBuilder<AppThemeMode>(
       valueListenable: _viewModel.appTheme,
       builder: (context, currentTheme, _) {
-        final isDarkMode = currentTheme != AppThemeMode.light;
-        final isSystemMode = currentTheme == AppThemeMode.system;
+        final systemIsDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 16),
             const SectionHeader(title: 'Appearance'),
-            _systemThemeButton(context, isSystemMode),
-            if (!isSystemMode) _darkModeButton(context, isDarkMode),
-            if (isDarkMode) _amoledDarkMode(context, currentTheme),
+            _systemThemeButton(context, currentTheme, systemIsDark),
+            _lightDarkModeButton(context, currentTheme, systemIsDark),
+            _amoledDarkModeButton(context, currentTheme, systemIsDark),
           ],
         );
       },
     );
   }
 
-  Widget _systemThemeButton(BuildContext context, bool isDarkMode) {
+  Widget _systemThemeButton(BuildContext context, AppThemeMode currentTheme, bool systemIsDark) {
     return ListTile(
       title: const Text('System'),
-      subtitle: Text(isDarkMode ? 'On' : 'Off'),
+      subtitle: Text(_viewModel.isSystemMode(currentTheme) ? 'On' : 'Off'),
       trailing: Switch(
-        value: isDarkMode,
-        onChanged: (value) {
-          _viewModel.onChangeTheme(
-            value ? AppThemeMode.system : AppThemeMode.light,
-          );
-        },
+        value: _viewModel.isSystemMode(currentTheme),
+        onChanged: (value) => _viewModel.handleSystemThemeChange(value, systemIsDark),
       ),
     );
   }
 
-  Widget _darkModeButton(BuildContext context, bool isDarkMode) {
+  Widget _lightDarkModeButton(BuildContext context, AppThemeMode currentTheme, bool systemIsDark) {
     return ListTile(
+      enabled: !_viewModel.isSystemMode(currentTheme),
       title: const Text('Dark Mode'),
-      subtitle: Text(isDarkMode ? 'On' : 'Off'),
+      subtitle: Text(_viewModel.isDarkMode(currentTheme, systemIsDark) ? 'On' : 'Off'),
       trailing: Switch(
-        value: isDarkMode,
-        onChanged: (value) {
-          _viewModel.onChangeTheme(
-            value ? AppThemeMode.dark : AppThemeMode.light,
-          );
-        },
+        value: _viewModel.isDarkMode(currentTheme, systemIsDark),
+        onChanged: _viewModel.isSystemMode(currentTheme) ? null : _viewModel.handleDarkModeChange,
       ),
     );
   }
 
-  Widget _amoledDarkMode(BuildContext context, AppThemeMode currentTheme) {
+  Widget _amoledDarkModeButton(BuildContext context, AppThemeMode currentTheme, bool systemIsDark) {
+    final isDarkMode = _viewModel.isDarkMode(currentTheme, systemIsDark);
+
     return ListTile(
+      enabled: isDarkMode,
       title: const Text('AMOLED Dark Mode'),
       subtitle: const Text('Pure black theme for OLED displays'),
       trailing: Switch(
-        value: currentTheme == AppThemeMode.amoled,
-        onChanged: (value) {
-          _viewModel.onChangeTheme(
-            value ? AppThemeMode.amoled : AppThemeMode.dark,
-          );
-        },
+        value: _viewModel.isAmoledMode(currentTheme),
+        onChanged: isDarkMode ? (value) => _viewModel.handleAmoledModeChange(value, currentTheme) : null,
       ),
     );
   }
